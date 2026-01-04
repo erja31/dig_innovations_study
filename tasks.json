@@ -1,0 +1,19 @@
+{
+    "tasks": [
+      {
+        "task_id": 1,
+        "complexity": "low",
+        "prompt": "Choose a sustainable lunch option."
+      },
+      {
+        "task_id": 2,
+        "complexity": "medium",
+        "prompt": "Plan a sustainable grocery list for 3 days."
+      },
+      {
+        "task_id": 3,
+        "complexity": "high",
+        "prompt": "Describe how you would redesign urban transport to reduce emissions."
+      }
+    ]
+  }
