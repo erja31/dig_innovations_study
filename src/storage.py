@@ -2,9 +2,8 @@ import streamlit as st
 from datetime import datetime
 import gspread
 from google.oauth2.service_account import Credentials
-import structlog
 
-logger = structlog.get_logger(name=__name__)
+
 def save_response_data(current_task, response, used_alternative_search):
     """Save response data as a list for easy export."""
     # Store as list in the correct order
@@ -50,11 +49,8 @@ def save_to_google_sheets():
             
             worksheet.append_row(response)
     
-        
-        
         return True
         
     except Exception as e:
         st.error(f"Error saving to Google Sheets: {e}")
-        logger.info("Error saving to Google Sheets", exception=str(e))
         return False
