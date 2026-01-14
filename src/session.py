@@ -12,11 +12,21 @@ def load_tasks():
 def init():
 
     # Initialize session state
-    if "tasks" not in st.session_state:
-        st.session_state.tasks = load_tasks()
-
-    if "task_index" not in st.session_state:
+    if 'tasks' not in st.session_state:
+        # 1. Load your tasks from the JSON file
+        with open('tasks.json', 'r') as f:
+            data = json.load(f)
+    
+        # 2. Extract the actual LIST from the "tasks" key
+        task_list = data["tasks"]
+    
+        # 3. Shuffle the list
+        random.shuffle(task_list)
+        
+        # 4. Store the randomized list and the index
+        st.session_state.tasks = task_list
         st.session_state.task_index = 0
+        st.session_state.study_completed = False
 
     if "participant_id" not in st.session_state:
         st.session_state.participant_id = str(uuid.uuid4())
@@ -35,14 +45,5 @@ def init():
     if "responses" not in st.session_state:
         st.session_state.responses = []
 
-    if "study_started" not in st.session_state:
-        st.session_state.study_started = False
-
     if "study_completed" not in st.session_state:
         st.session_state.study_completed = False
-
-    if "show_transition" not in st.session_state:
-        st.session_state.show_transition = False
-
-    if "transition_start_time" not in st.session_state:
-        st.session_state.transition_start_time = None

@@ -1,7 +1,6 @@
 import streamlit as st
 import time
 import pandas as pd
-from src.storage import export_to_json, export_to_csv_format
 
 def render_start_page():
     """Render the initial study information and consent page."""
@@ -33,7 +32,7 @@ def render_start_page():
     - You may withdraw from the study at any time
     
     ### Consent
-    By clicking "Start Study" below, you acknowledge that:
+    By clicking confirming below, you acknowledge that:
     - You have read and understood the study information
     - You voluntarily agree to participate
     - You are at least 18 years old
@@ -43,10 +42,15 @@ def render_start_page():
     
     If you have any questions about this study, please contact the research team before proceeding.
     """.format(st.session_state.participant_id))
+
+    if st.checkbox("I have read and agree to the terms of the study.", key="consent_checkbox"):
+        disabled = False
+    else:
+        disabled = True
     
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        if st.button("Start Study", type="primary", use_container_width=True):
+        if st.button(label="Start Study", type="primary", disabled=disabled, use_container_width=True):
             st.session_state.study_started = True
             st.rerun()
 
@@ -89,37 +93,3 @@ def render_end_page():
         st.session_state.nudge,
         time.strftime("%Y-%m-%d %H:%M:%S")
     ))
-    
-    # Export options
-    st.markdown("### 📥 Download Your Data")
-    
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        # JSON export (complete data)
-        json_data = export_to_json()
-        st.download_button(
-            label="📄 Download Complete Data (JSON)",
-            data=json_data,
-            file_name=f"study_data_{st.session_state.participant_id}.json",
-            mime="application/json",
-            use_container_width=True
-        )
-    
-    with col2:
-        # CSV-friendly format
-        csv_rows = export_to_csv_format()
-        df = pd.DataFrame(csv_rows)
-        csv_data = df.to_csv(index=False)
-        
-        st.download_button(
-            label="📊 Download for Google Sheets (CSV)",
-            data=csv_data,
-            file_name=f"study_data_{st.session_state.participant_id}.csv",
-            mime="text/csv",
-            use_container_width=True
-        )
-    
-    # Show preview of data
-    with st.expander("📋 Preview Your Data"):
-        st.dataframe(df)

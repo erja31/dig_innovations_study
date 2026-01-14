@@ -20,7 +20,7 @@ def analyze_prompt_energy(prompt):
         "analyze", "analyse", "comprehensive", "detailed", "elaborate", "explain in depth",
         "compare", "summarize", "translate", "write a long", "generate multiple",
         "create a list of", "provide examples", "step by step", "thorough",
-        "extensive", "in-depth", "complete analysis", "full report"
+        "extensive", "in-depth", "complete analysis", "full report", "step-by-step"
     ]
     
     # Medium-energy keywords
@@ -54,7 +54,7 @@ def analyze_prompt_energy(prompt):
     if high_energy_count > 0:
         energy_score += high_energy_count * 20
         keywords_found = [kw for kw in high_energy_keywords if kw in prompt_lower]
-        messages.append(f"🔥 High-energy keywords detected: {', '.join(keywords_found[:3])}. These require more computational resources.")
+        messages.append(f"High-energy keywords detected: {', '.join(keywords_found[:3])}. These require more computational resources.")
     
     if medium_energy_count > 0:
         energy_score += medium_energy_count * 10
@@ -62,12 +62,12 @@ def analyze_prompt_energy(prompt):
     # Check for multiple requests
     if prompt.count("and") > 3 or prompt.count(",") > 5:
         energy_score += 15
-        messages.append("📝 Your prompt contains multiple requests. Consider breaking them into separate queries.")
+        messages.append("Your prompt contains multiple requests. Consider breaking them into separate queries.")
     
     # Check for complexity indicators
     if any(phrase in prompt_lower for phrase in ["code", "program", "script", "algorithm"]):
         energy_score += 25
-        messages.append("💻 Code generation requires significant computational resources.")
+        messages.append("Code generation requires significant computational resources.")
     
     # Determine energy level
     if energy_score >= 70:
@@ -94,12 +94,16 @@ def render_feedback_nudge():
     st.title("Chat Interface")
     current_task = st.session_state.tasks[st.session_state.task_index]
 
-    st.markdown(f"### Task {current_task['task_id']}")
-    st.write(f"**Complexity:** {current_task['complexity']}")
+    # Calculate human-readable progress
+    current_number = st.session_state.task_index + 1
+    total_tasks = len(st.session_state.tasks)
+
+    # Display the progress as the header
+    st.markdown(f"### Task {current_number} of {total_tasks}")
     st.write(current_task["prompt"])
     
 
-    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt.")
+    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press 'command/ctrl + enter' to update the feedback.")
     
     
     response = st.text_area(
@@ -138,22 +142,22 @@ def render_feedback_nudge():
             # Show detailed feedback based on energy level
             if analysis["level"] == "high":
                 for message in analysis["messages"]:
-                    st.error(f"• {message}")
+                    st.markdown(f"• {message}")
                 
             elif analysis["level"] == "medium":
                 for message in analysis["messages"]:
-                    st.warning(f"• {message}")
+                    st.markdown(f"• {message}")
                 
             elif analysis["level"] == "low":
                 for message in analysis["messages"]:
-                    st.info(f"• {message}")
+                    st.markdown(f"• {message}")
             else:
                 
                 st.success("Your prompt is energy-efficient!")
             
             # Show tips if score is high
             if analysis["score"] > 40:
-                with st.expander("💡 Tips to reduce energy consumption", expanded=analysis["score"] > 60):
+                with st.expander("💡 Tips to reduce energy consumption", expanded=analysis["score"] > 30):
                     st.markdown("""
                     - **Be specific and concise**: Avoid asking for "comprehensive" or "detailed" explanations unless necessary
                     - **One task at a time**: Break complex requests into simpler, separate queries
@@ -171,9 +175,9 @@ def render_feedback_nudge():
     
     with col2:
         alt_search = st.button(
-            "🌱 Search Elsewhere",
+            "Alternative Search",
             key=f"alt_search_{st.session_state.task_index}",
-            help="Use a more sustainable search engine like Ecosia",
+            help="Use a different search method like a simple Google Search",
             use_container_width=True
         )
     

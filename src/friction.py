@@ -6,13 +6,17 @@ def render_friction_nudge():
     st.title("Chat Interface")
     current_task = st.session_state.tasks[st.session_state.task_index]
 
-    st.markdown(f"### Task {current_task['task_id']}")
-    st.write(f"**Complexity:** {current_task['complexity']}")
+    # Calculate human-readable progress
+    current_number = st.session_state.task_index + 1
+    total_tasks = len(st.session_state.tasks)
+
+    # Display the progress as the header
+    st.markdown(f"### Task {current_number} of {total_tasks}")
     st.write(current_task["prompt"])
 
     response = st.text_area("Your response", key=f"response_{st.session_state.task_index}")
 
-    COOLDOWN_SECONDS = 10
+    COOLDOWN_SECONDS = 15
     button_disabled = False
     time_remaining = 0
     cooldown_expired = False
@@ -33,7 +37,7 @@ def render_friction_nudge():
 
     # Show warning if still in cooldown
     if button_disabled and st.session_state.last_submit_time and response.strip():
-        st.warning(f"⏳ Please wait {time_remaining} seconds before submitting. Use this time to reconsider your response. Keep in mind that shorter and more concise prompts use significantly less energy and a switch to a standard Google search can use up to 10 times less energy than the usage of a LLM!")
+        st.warning(f"Please wait {time_remaining} seconds before submitting. Reconsider your response. Shorter and more concise prompts use significantly less energy and a switch to a standard Google search can use up to 10 times less energy than the usage of a LLM!")
         time.sleep(1)
         st.rerun()
 
@@ -44,9 +48,9 @@ def render_friction_nudge():
     
     with col2:
         alt_search = st.button(
-            "🌱 Search Elsewhere",
+            "Alternative Search",
             key=f"alt_search_{st.session_state.task_index}",
-            help="Use a more sustainable search engine like Ecosia",
+            help="Use a different search method like a simple Google Search",
             use_container_width=True
         )
 
