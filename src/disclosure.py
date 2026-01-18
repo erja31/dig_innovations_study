@@ -13,13 +13,14 @@ def render_disclosure_nudge():
     # Display the progress as the header
     st.markdown(f"### Task {current_number} of {total_tasks}")
     st.write(current_task["prompt"])
-    st.markdown("Large Language Model queries consume significant energy. Please aim for concise and efficient requests. The best prctise would be to use a standard search engine because it uses up to 10 times less energy than a LLM!")
+    st.info("Large Language Model queries consume significant energy. Please aim for concise and efficient requests. The best prctise would be to use a standard search engine because it uses up to 10 times less energy than a LLM!")
     with st.expander("💡 Tips to reduce energy consumption", expanded=False):
                     st.markdown("""
                     - **Be specific and concise**: Avoid asking for "comprehensive" or "detailed" explanations unless necessary
                     - **One task at a time**: Break complex requests into simpler, separate queries
                     - **Avoid redundancy**: Don't ask for the same information in multiple ways
                     - **Use precise language**: Clear, direct questions are more efficient
+                    - **Avoid specific keywords that could lead to longer responses**: Words like "analyze", "detailed", "comprehensive", or "in-depth" can increase response length
                     - **Limit scope**: Request only the information you actually need
                     """)
 
