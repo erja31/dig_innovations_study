@@ -12,26 +12,25 @@ def analyze_prompt_energy(prompt):
         return {
             "score": 0,
             "level": "none",
-            "messages": []
+            "messages": [],
         }
     
     # High-energy keywords that indicate complex operations
     high_energy_keywords = [
-        "analyze", "analyse", "comprehensive", "detailed", "elaborate", "explain in depth",
+        "analyze", "analyse", "comprehensive", "create", "detailed", "elaborate", "explain", "explain in depth",
         "compare", "summarize", "translate", "write a long", "generate multiple",
-        "create a list of", "provide examples", "step by step", "thorough",
-        "extensive", "in-depth", "complete analysis", "full report", "step-by-step"
+        "create a list of", "provide examples", "step by step", "thorough", "develop", "design",
+        "extensive", "in-depth", "complete analysis", "full report", "step-by-step", "recommend", "measure", "report", "list",
     ]
     
     # Medium-energy keywords
     medium_energy_keywords = [
-        "describe", "explain", "tell me about", "what is", "how does",
-        "give me", "show me", "help me understand", "outline"
+        "describe", "explain", "tell me about", "what is", "how does", "provide",
+        "give me", "show me", "help me understand", "outline", "write", "classify", "identify", "generate", "justify", "translate"
     ]
     
     # Calculate energy factors
     word_count = len(prompt.split())
-    char_count = len(prompt)
     
     # Count high and medium energy keywords
     prompt_lower = prompt.lower()
@@ -43,10 +42,10 @@ def analyze_prompt_energy(prompt):
     messages = []
     
     # Length-based scoring
-    if word_count > 100:
+    if word_count > 70:
         energy_score += 30
         messages.append(f"⚠️ Your prompt is quite long ({word_count} words). Consider being more concise.")
-    elif word_count > 50:
+    elif word_count > 30:
         energy_score += 15
         messages.append(f"Your prompt is moderately long ({word_count} words).")
     
@@ -63,11 +62,6 @@ def analyze_prompt_energy(prompt):
     if prompt.count("and") > 3 or prompt.count(",") > 5:
         energy_score += 15
         messages.append("Your prompt contains multiple requests. Consider breaking them into separate queries.")
-    
-    # Check for complexity indicators
-    if any(phrase in prompt_lower for phrase in ["code", "program", "script", "algorithm"]):
-        energy_score += 25
-        messages.append("Code generation requires significant computational resources.")
     
     # Determine energy level
     if energy_score >= 70:
@@ -86,7 +80,7 @@ def analyze_prompt_energy(prompt):
     return {
         "score": min(energy_score, 100),
         "level": level,
-        "messages": messages
+        "messages": messages,
     }
 
 
@@ -102,9 +96,13 @@ def render_feedback_nudge():
     st.markdown(f"### Task {current_number} of {total_tasks}")
     st.write(current_task["prompt"])
     
-
-    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press 'command/ctrl + enter' to update the feedback.")
+    # Initialize tracking variables for this task if not already present
+    task_key = f"task_{st.session_state.task_index}"
+    if f"{task_key}_previous_response" not in st.session_state:
+        st.session_state[f"{task_key}_previous_response"] = ""
+        st.session_state[f"{task_key}_version_count" ] = 0
     
+    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press 'command/ctrl + enter' to update the feedback.")
     
     response = st.text_area(
         "Your response",
@@ -120,6 +118,22 @@ def render_feedback_nudge():
     with feedback_container:
         if response.strip():
             analysis = analyze_prompt_energy(response)
+            
+            # Track changes: save each version when response changes
+            previous_response = st.session_state[f"{task_key}_previous_response"]
+            if response != previous_response and response.strip():
+                # Increment version count
+                st.session_state[f"{task_key}_version_count"] += 1
+                version = st.session_state[f"{task_key}_version_count"]
+                
+                # Create the task identifier with version suffix
+                task_identifier = f"{st.session_state.task_index}_{version}"
+                
+                # Save this version
+                save_response_data(task_identifier, current_task, response, used_alternative_search=False)
+                
+                # Update the previous response
+                st.session_state[f"{task_key}_previous_response"] = response
             
             # Create columns for metric display at the top
             col1, col2, col3 = st.columns(3)
@@ -152,7 +166,6 @@ def render_feedback_nudge():
                 for message in analysis["messages"]:
                     st.markdown(f"• {message}")
             else:
-                
                 st.success("Your prompt is energy-efficient!")
             
             # Show tips if score is high
@@ -163,6 +176,7 @@ def render_feedback_nudge():
                     - **One task at a time**: Break complex requests into simpler, separate queries
                     - **Avoid redundancy**: Don't ask for the same information in multiple ways
                     - **Use precise language**: Clear, direct questions are more efficient
+                    - **Avoid specific keywords that could lead to longer responses**: Words like "analyze", "detailed", "comprehensive", or "in-depth" can increase response length
                     - **Limit scope**: Request only the information you actually need
                     """)
     
@@ -183,7 +197,7 @@ def render_feedback_nudge():
     
     if alt_search:
         # Move to next task
-        save_response_data(current_task, response, used_alternative_search=True)
+        save_response_data(f"{st.session_state.task_index}_alt", current_task, response, used_alternative_search=True)
         
         if st.session_state.task_index < len(st.session_state.tasks) - 1:
             st.session_state.task_index += 1
@@ -197,7 +211,6 @@ def render_feedback_nudge():
         analysis = analyze_prompt_energy(response)
         
         st.success("Response submitted!")
-        save_response_data(current_task, response, used_alternative_search=False)
         
         time.sleep(1)
         

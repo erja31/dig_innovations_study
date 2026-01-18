@@ -4,13 +4,13 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 
-def save_response_data(current_task, response, used_alternative_search):
+def save_response_data(task_index, current_task, response, used_alternative_search):
     """Save response data as a list for easy export."""
     # Store as list in the correct order
     response_data = [
         st.session_state.participant_id,
         st.session_state.nudge,
-        st.session_state.task_index,
+        task_index,
         current_task['task_id'],
         current_task['complexity'],
         response,
@@ -20,9 +20,6 @@ def save_response_data(current_task, response, used_alternative_search):
     
     st.session_state.responses.append(response_data)
     return response_data  # Return for use in Google Sheets
-
-
-
 
 
 def save_to_google_sheets():

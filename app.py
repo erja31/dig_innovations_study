@@ -38,7 +38,7 @@ if __name__ == "__main__":
             render_friction_nudge()
         elif nudge_type == "feedback":
             render_feedback_nudge()
-        elif nudge_type == "default":
+        elif nudge_type == "disclosure":
             render_disclosure_nudge()
         else:
             render_control_group()

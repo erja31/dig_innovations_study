@@ -25,7 +25,7 @@ def init():
         
         # 4. Store the randomized list and the index
         st.session_state.tasks = task_list
-        st.session_state.task_index = 0
+        st.session_state.task_index = 1
         st.session_state.study_completed = False
 
     if "participant_id" not in st.session_state:
@@ -35,7 +35,7 @@ def init():
         st.session_state.nudge = random.choice([
             "control",
             "friction",
-            "default",
+            "disclosure",
             "feedback"
         ])
 

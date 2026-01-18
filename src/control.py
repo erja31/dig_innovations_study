@@ -30,7 +30,7 @@ def render_control_group():
         )
     
     if alt_search:
-        save_response_data(current_task, response, used_alternative_search=True)
+        save_response_data(st.session_state.task_index, current_task, response, used_alternative_search=True)
         
         # Move to next task
         if st.session_state.task_index < len(st.session_state.tasks) - 1:
@@ -42,7 +42,7 @@ def render_control_group():
             st.rerun()
 
     elif submitted and response.strip():
-        save_response_data(current_task, response, used_alternative_search=False)
+        save_response_data(st.session_state.task_index, current_task, response, used_alternative_search=False)
         
         
         st.success("Response submitted!")

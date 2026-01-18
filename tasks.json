@@ -3,62 +3,62 @@
     {
       "task_id": 1,
       "complexity": "low",
-      "prompt": "Your friend asks you about the former president, Barack Obama, and his children. You now want to know their names. Task: Use the text field below to ask the chatbot for more information on the above topic, or switch to a web browser to do a simple Google search."
+      "prompt": "You are preparing a short personal talk and want to mention Barack Obama's family in a respectful and accurate way. You are unsure how many children he has, what their names are, and whether they are involved in public life. You want to avoid saying anything incorrect or misleading.\n\n**Task:** Use the text field below to explain what you need and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 2,
       "complexity": "low",
-      "prompt": "Your younger sibling is working on a school project about the history of space exploration and asks you when the first human landed on the moon. Task: Use the text field below to ask the chatbot for the specific date of the Apollo 11 moon landing, or switch to a web browser to do a simple Google search."
+      "prompt": "Your younger sibling is working on a school presentation about space exploration. They need not only the exact date of the first human moon landing, but also a brief explanation of why this moment is historically important. You want to give an answer that is accurate but easy to understand for a school audience.\n\n**Task:** Use the text field below to explain your situation and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 3,
       "complexity": "low",
-      "prompt": "You are planning a trip to Japan and want to know which city is currently the most populated so you can decide whether to visit or avoid the crowds. Task: Use the text field below to ask the chatbot for the name of the most populous city in Japan, or switch to a web browser to do a simple Google search."
+      "prompt": "You are planning a trip to Japan and are deciding which cities to visit. You are trying to understand where the largest population concentrations are today, and whether population size reflects tourism pressure or urban density. You want to base your decision on up-to-date and meaningful information.\n\n**Task:** Use the text field below to explain what you are looking for and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 4,
       "complexity": "low",
-      "prompt": "You are reading a nutrition blog that mentions 'macronutrients', and you realize you aren't exactly sure what the three primary categories are. Task: Use the text field below to ask the chatbot to list the three main types of macronutrients, or switch to a web browser to do a simple Google search."
+      "prompt": "You are reading a nutrition blog that frequently refers to \"macronutrients,\" but you realize you are not fully confident about what falls into this category. You want a clear explanation of the main types and how they differ, without getting into overly technical details.\n\n**Task:** Use the text field below to explain what you want to understand and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 5,
       "complexity": "medium",
-      "prompt": "You hear a news report mentioning 'Universal Basic Income' (UBI) as a proposed economic policy. You want to understand the general pros and cons of this concept without reading a long research paper. Task: Use the text field below to ask the chatbot to summarize the main arguments for and against Universal Basic Income, or switch to a web browser to do a simple Google search."
+      "prompt": "You are taking part in a discussion where people have very different political views on Universal Basic Income. You want to understand the main arguments both in favor of and against UBI so you can contribute in a balanced and informed way, without sounding ideological or overly technical.\n\n**Task:** Use the text field below to describe your situation and ask the chatbot for a suitable summary, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 6,
       "complexity": "medium",
-      "prompt": "You are joining a book club tonight, but you haven't had time to read the classic novel The Great Gatsby. You need a quick breakdown of the main plot points so you can participate in the conversation. Task: Use the text field below to ask the chatbot to provide a brief summary of the plot of The Great Gatsby, or switch to a web browser to do a simple Google search."
+      "prompt": "You are joining a book club discussion about The Great Gatsby, but you have not had time to read the novel. You want to understand the main plot points, key characters, and overarching themes well enough to follow the conversation and make meaningful comments.\n\n**Task:** Use the text field below to explain what kind of overview you need and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 7,
       "complexity": "medium",
-      "prompt": "You are introducing a guest speaker, Elon Musk, at a local tech seminar. You need a short professional biography that covers his major career achievements across his different companies. Task: Use the text field below to ask the chatbot for a one-paragraph summary of Elon Musk’s career history, or switch to a web browser to do a simple Google search."
+      "prompt": "You are introducing a guest speaker at a local tech seminar. The audience includes both technical experts and non-specialists. You want a short professional biography of Elon Musk that highlights his major career achievements across different companies, while keeping a neutral and professional tone.\n\n**Task:** Use the text field below to explain your requirements and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 8,
       "complexity": "medium",
-      "prompt": "You are interested in sustainability and wish to learn more about the Kyoto Protocol, which established three major market-based mechanisms and thereby influenced cost-effective greenhouse gas abatement. Ask the chatbot in the text field below a prompt to find more about the above topic or switch to a web browser in order to do a simple Google search."
+      "prompt": "You are interested in sustainability and climate policy and want to better understand why the Kyoto Protocol is often described as influential. In particular, you want to grasp the idea behind its market-based mechanisms and why they were considered cost-effective at the time, without reading a full academic paper.\n\n**Task:** Use the text field below to explain what you want to learn and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 9,
       "complexity": "high",
-      "prompt": "You are an advisor for a small developing nation looking to reduce carbon emissions. You are debating whether to implement a 'Carbon Tax' or a 'Cap-and-Trade' system. You need to understand which one would be more effective specifically for a country with high industrial growth but low administrative resources. Task: Use the text field below to ask the chatbot to compare these two systems and recommend which is better suited for your specific constraints, or switch to a web browser to do a simple Google search."
+      "prompt": "You are advising a small developing country that wants to reduce carbon emissions while maintaining rapid industrial growth. The country has limited administrative capacity, strong political resistance from manufacturers, and concerns about economic competitiveness. You need to evaluate whether a carbon tax or a cap-and-trade system would be more effective and realistic under these constraints.\n\n**Task:** Use the text field below to explain your context and ask the chatbot to compare the two approaches and make a recommendation, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 10,
       "complexity": "high",
-      "prompt": "You are trying to bake a sourdough bread, but every loaf you make comes out flat and dense instead of airy. You have already checked your yeast and oven temperature. You need to figure out the step-by-step logic of what might be going wrong in your fermentation or folding process. Task: Use the text field below to ask the chatbot to diagnose the likely cause of your flat bread based on your specific steps and suggest a logical fix, or switch to a web browser to do a simple Google search."
+      "prompt": "You have been baking sourdough bread repeatedly, but your loaves consistently turn out flat and dense instead of airy. You have already checked basic factors like yeast quality and oven temperature. You want to understand, step by step, what might be going wrong in your fermentation, folding, or timing process, and how to fix it.\n\n**Task:** Use the text field below to describe what you have tried and ask the chatbot to help you reason through the possible causes, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 11,
       "complexity": "high",
-      "prompt": "Your company is considering moving all its data to the cloud. While it saves money, you are concerned about the trade-off between 'cost-efficiency' and 'data sovereignty/privacy'. You need a logical framework to weigh these competing priorities before making a final recommendation to your boss. Task: Use the text field below to ask the chatbot to provide a reasoned argument for and against the move based on these specific conflicting priorities, or switch to a web browser to do a simple Google search."
+      "prompt": "Your company is considering moving all of its data to the cloud to reduce costs and improve scalability. At the same time, you are concerned about data sovereignty, privacy obligations, and long-term dependency on external providers. You need a structured way to weigh these competing priorities before making a recommendation to your boss.\n\n**Task:** Use the text field below to explain your concerns and ask the chatbot for a reasoned analysis, or switch to a web browser to do a simple Google search."
     },
     {
       "task_id": 12,
       "complexity": "high",
-      "prompt": "You manage a small law firm. You want to use 'Agentic AI' to handle 80% of your administrative paperwork to save costs, but you are worried about the 2026 AI Employment Regulations regarding data privacy and bias. Task: Use the text field below to ask the chatbot to create a risk-assessment checklist for implementing AI in your office while staying compliant with current regulations, or switch to a web browser to do a simple Google search."
+      "prompt": "You manage a small law firm and are considering using agentic AI systems to automate most administrative tasks to reduce costs. However, you are worried about compliance with upcoming AI employment regulations, data privacy requirements, potential bias, and reputational risks. You need a clear risk-assessment framework to decide whether and how to proceed.\n\n**Task:** Use the text field below to explain your situation and ask the chatbot to help you assess the risks, or switch to a web browser to do a simple Google search."
     }
   ]
 }

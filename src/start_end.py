@@ -11,13 +11,9 @@ def render_start_page():
     
     Thank you for your interest in participating in our research study on **sustainable information systems**.
     
-    ### Purpose of the Study
-    This study investigates how different interface designs and feedback mechanisms influence how people 
-    formulate prompts when interacting with AI chatbots. Your participation will help us understand 
-    effective ways to encourage thoughtful and efficient AI usage.
     
     ### What You'll Do
-    - Complete **3 tasks** that involve writing prompts for an AI chatbot
+    - Complete **12 tasks** that involve writing prompts for an AI chatbot
     - Each task presents a scenario where you need to formulate a prompt to get the desired information
     - The interface may provide different types of guidance or feedback
     - Your responses will be recorded for research purposes
@@ -35,7 +31,6 @@ def render_start_page():
     By clicking confirming below, you acknowledge that:
     - You have read and understood the study information
     - You voluntarily agree to participate
-    - You are at least 18 years old
     - You understand your data will be used for research purposes
     
     ---
@@ -76,13 +71,13 @@ def render_end_page():
     
     ### Study Details
     - **Participant ID:** `{}`
-    - **Tasks Completed:** {}
     - **Nudge Type:** {}
     - **Completion Time:** {}
     
     ### Questions or Concerns?
     If you have any questions about the study or would like to learn more about the research, 
-    please feel free to contact us.
+    please feel free to contact us. 
+                
     
     ---
     
