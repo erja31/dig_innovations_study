@@ -44,7 +44,7 @@ def render_disclosure_nudge():
         save_response_data(f"{st.session_state.task_index}_1", current_task, response, used_alternative_search=True)
         
         # Move to next task
-        if st.session_state.task_index < len(st.session_state.tasks) - 1:
+        if st.session_state.task_index < len(st.session_state.tasks):
             st.session_state.task_index += 1
             st.session_state.show_transition = True
             st.rerun()
@@ -59,7 +59,7 @@ def render_disclosure_nudge():
         st.success("Response submitted!")
         time.sleep(1)
         
-        if st.session_state.task_index < len(st.session_state.tasks) - 1:
+        if st.session_state.task_index < len(st.session_state.tasks):
             st.session_state.task_index += 1
             st.session_state.show_transition = True
             st.rerun()

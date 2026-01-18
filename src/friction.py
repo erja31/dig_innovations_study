@@ -77,7 +77,7 @@ def render_friction_nudge():
             time.sleep(1)
             
             # Move to next task
-            if st.session_state.task_index < len(st.session_state.tasks) - 1:
+            if st.session_state.task_index < len(st.session_state.tasks):
                 st.session_state.task_index += 1
                 st.session_state.show_transition = True
                 st.rerun()
@@ -88,7 +88,7 @@ def render_friction_nudge():
         elif st.session_state.last_submit_time is None:
             # First click - next task
             save_response_data(f"{st.session_state.task_index}_1", current_task, response, used_alternative_search=True)
-            if st.session_state.task_index < len(st.session_state.tasks) - 1:
+            if st.session_state.task_index < len(st.session_state.tasks):
                 st.session_state.task_index += 1
                 st.session_state.show_transition = True
                 st.rerun()
