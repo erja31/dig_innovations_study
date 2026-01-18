@@ -41,7 +41,7 @@ def render_disclosure_nudge():
         )
     
     if alt_search:
-        save_response_data(f"{st.session_state.task_index}_1", current_task, response, used_alternative_search=True)
+        save_response_data(f"{st.session_state.task_index}_1", current_task,"Used alternative search", used_alternative_search=True)
         
         # Move to next task
         if st.session_state.task_index < len(st.session_state.tasks):

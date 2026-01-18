@@ -198,7 +198,7 @@ def render_feedback_nudge():
     
     if alt_search:
         # Move to next task
-        save_response_data(f"{st.session_state.task_index}_alt", current_task, response, used_alternative_search=True)
+        save_response_data(f"{st.session_state.task_index}_alt", current_task, "Used alternative search", used_alternative_search=True)
         
         if st.session_state.task_index < len(st.session_state.tasks):
             st.session_state.task_index += 1

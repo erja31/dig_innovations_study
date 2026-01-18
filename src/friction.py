@@ -69,7 +69,7 @@ def render_friction_nudge():
             # Cooldown just expired, now actually submit
             
             st.success("Response submitted!")
-            save_response_data(f"{st.session_state.task_index}_2", current_task, response, used_alternative_search=True)
+            save_response_data(f"{st.session_state.task_index}_2", current_task, "Used alternative search", used_alternative_search=True)
         
             
             # Reset for next task
@@ -87,7 +87,7 @@ def render_friction_nudge():
                 
         elif st.session_state.last_submit_time is None:
             # First click - next task
-            save_response_data(f"{st.session_state.task_index}_1", current_task, response, used_alternative_search=True)
+            save_response_data(f"{st.session_state.task_index}_1", current_task, "Used alternative search", used_alternative_search=True)
             if st.session_state.task_index < len(st.session_state.tasks):
                 st.session_state.task_index += 1
                 st.session_state.show_transition = True
