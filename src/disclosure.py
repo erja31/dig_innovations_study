@@ -7,7 +7,7 @@ def render_disclosure_nudge():
     current_task = st.session_state.tasks[st.session_state.task_index]
 
     # Calculate human-readable progress
-    current_number = st.session_state.task_index + 1
+    current_number = st.session_state.task_index
     total_tasks = len(st.session_state.tasks)
 
     # Display the progress as the header
