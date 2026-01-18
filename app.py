@@ -15,7 +15,9 @@ if __name__ == "__main__":
 
     # 1. Check if the study is finished first
     if st.session_state.study_completed:
-        save_to_google_sheets()
+        if not st.session_state.get('data_saved', False):
+            save_to_google_sheets()
+            st.session_state.data_saved = True
         render_end_page()
 
     # 2. Check if we haven't started yet

@@ -47,3 +47,6 @@ def init():
 
     if "study_completed" not in st.session_state:
         st.session_state.study_completed = False
+
+    if "data_saved" not in st.session_state:
+        st.session_state.data_saved = False
