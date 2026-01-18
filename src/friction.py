@@ -14,7 +14,7 @@ def render_friction_nudge():
     st.markdown(f"### Task {current_number} of {total_tasks}")
     st.write(current_task["prompt"])
 
-    response = st.text_area("Your response", key=f"response_{st.session_state.task_index}")
+    response = st.text_area(label="Your response",placeholder="Please provide a detailed description of your request", key=f"response_{st.session_state.task_index}")
 
     COOLDOWN_SECONDS = 20
     button_disabled = False

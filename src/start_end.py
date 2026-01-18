@@ -84,7 +84,6 @@ def render_end_page():
     You may now close this window.
     """.format(
         st.session_state.participant_id,
-        len(st.session_state.responses),
         st.session_state.nudge,
         time.strftime("%Y-%m-%d %H:%M:%S")
     ))

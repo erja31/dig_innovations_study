@@ -105,7 +105,8 @@ def render_feedback_nudge():
     st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press 'command/ctrl + enter' to update the feedback.")
     
     response = st.text_area(
-        "Your response",
+        label="Your response",
+        placeholder="Please provide a detailed description of your request",
         key=f"response_{st.session_state.task_index}",
         help="Type your prompt here. You'll receive real-time feedback on its energy consumption.",
         on_change=None  # This triggers rerun on every change
