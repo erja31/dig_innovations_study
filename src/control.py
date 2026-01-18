@@ -4,7 +4,7 @@ from src.storage import save_response_data
 
 def render_control_group():
     st.title("Chat Interface")
-    current_task = st.session_state.tasks[st.session_state.task_index]
+    current_task = st.session_state.tasks[st.session_state.task_index - 1]
     # Calculate human-readable progress
     current_number = st.session_state.task_index
     total_tasks = len(st.session_state.tasks)

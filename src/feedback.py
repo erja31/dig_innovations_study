@@ -86,7 +86,7 @@ def analyze_prompt_energy(prompt):
 
 def render_feedback_nudge():
     st.title("Chat Interface")
-    current_task = st.session_state.tasks[st.session_state.task_index]
+    current_task = st.session_state.tasks[st.session_state.task_index - 1]
 
     # Calculate human-readable progress
     current_number = st.session_state.task_index
