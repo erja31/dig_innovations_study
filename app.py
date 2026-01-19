@@ -8,6 +8,7 @@ from src.feedback import render_feedback_nudge
 from src.prescreening import render_prescreening
 from src.session import init
 from src.storage import save_to_google_sheets
+from src.example import render_example
 
 
 if __name__ == "__main__":
@@ -28,8 +29,11 @@ if __name__ == "__main__":
     elif "prescreening_complete" not in st.session_state and st.session_state.study_started:
         render_prescreening()
 
+    elif st.session_state.prescreening_complete and not st.session_state.example_complete:
+        render_example()
+
     # 4. Finally, if everything else is done, render the main study
-    elif st.session_state.study_started and st.session_state.prescreening_complete:
+    elif st.session_state.study_started:
         nudge_type = st.session_state.nudge
 
         st.caption("You are participating in a study on decision-making. Your responses will be used for research purposes.")

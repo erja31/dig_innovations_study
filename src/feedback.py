@@ -94,7 +94,8 @@ def render_feedback_nudge():
 
     # Display the progress as the header
     st.markdown(f"### Task {current_number} of {total_tasks}")
-    st.write(current_task["prompt"])
+    with st.container(border=True):
+        st.write(current_task["prompt"])
     
     # Initialize tracking variables for this task if not already present
     task_key = f"task_{st.session_state.task_index}"
@@ -102,11 +103,11 @@ def render_feedback_nudge():
         st.session_state[f"{task_key}_previous_response"] = ""
         st.session_state[f"{task_key}_version_count" ] = 0
     
-    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press 'command/ctrl + enter' to update the feedback.")
+    st.caption("⚡ This interface provides real-time feedback on the energy consumption of your prompt. Click outside of the text field or press **'command/ctrl + enter'** to update the feedback.")
     
     response = st.text_area(
         label="Your response",
-        placeholder="Please provide a detailed description of your request",
+        placeholder="Please provide a detailed description of your request and press command & Enter or click outside of the field!",
         key=f"response_{st.session_state.task_index}",
         help="Type your prompt here. You'll receive real-time feedback on its energy consumption.",
         on_change=None  # This triggers rerun on every change

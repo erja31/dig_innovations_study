@@ -11,9 +11,10 @@ def render_control_group():
 
     # Display the progress as the header
     st.markdown(f"### Task {current_number} of {total_tasks}")
-    st.write(current_task["prompt"])
+    with st.container(border=True):
+        st.write(current_task["prompt"])
     
-    response = st.text_area(label="Your response",placeholder="Please provide a detailed description of your request", key=f"response_{st.session_state.task_index}")
+    response = st.text_area(label="Your response",placeholder="Please provide a detailed description of your request and press command & Enter or click outside of the field!", key=f"response_{st.session_state.task_index}")
     disabled = not response.strip() 
     
     col1, col2 = st.columns(2)

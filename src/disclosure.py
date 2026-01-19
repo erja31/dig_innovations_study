@@ -12,8 +12,10 @@ def render_disclosure_nudge():
 
     # Display the progress as the header
     st.markdown(f"### Task {current_number} of {total_tasks}")
-    st.write(current_task["prompt"])
-    st.info("Large Language Model queries consume significant energy. Please aim for concise and efficient requests. The best prctise would be to use a standard search engine because it uses up to 10 times less energy than a LLM!")
+    with st.container(border=True):
+        st.write(current_task["prompt"])
+
+    st.info("Large Language Model queries consume significant energy. Please aim for concise and efficient requests. The best practise would be to use a standard search engine because it uses up to 10 times less energy than a LLM!")
     with st.expander("💡 Tips to reduce energy consumption", expanded=False):
                     st.markdown("""
                     - **Be specific and concise**: Avoid asking for "comprehensive" or "detailed" explanations unless necessary
@@ -24,7 +26,7 @@ def render_disclosure_nudge():
                     - **Limit scope**: Request only the information you actually need
                     """)
 
-    response = st.text_area(label="Your response",placeholder="Please provide a detailed description of your request", key=f"response_{st.session_state.task_index}")
+    response = st.text_area(label="Your response",placeholder="Please provide a detailed description of your request and press command & Enter or click outside of the field!", key=f"response_{st.session_state.task_index}")
     disabled = not response.strip()
     
     col1, col2 = st.columns(2)

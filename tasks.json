@@ -17,46 +17,31 @@
     },
     {
       "task_id": 4,
-      "complexity": "low",
-      "prompt": "You are reading a nutrition blog that frequently refers to \"macronutrients,\" but you realize you are not fully confident about what falls into this category. You want a clear explanation of the main types and how they differ, without getting into overly technical details.\n\n**Task:** Use the text field below to explain what you want to understand and ask the chatbot for help, or switch to a web browser to do a simple Google search."
-    },
-    {
-      "task_id": 5,
       "complexity": "medium",
       "prompt": "You are taking part in a discussion where people have very different political views on Universal Basic Income. You want to understand the main arguments both in favor of and against UBI so you can contribute in a balanced and informed way, without sounding ideological or overly technical.\n\n**Task:** Use the text field below to describe your situation and ask the chatbot for a suitable summary, or switch to a web browser to do a simple Google search."
     },
     {
-      "task_id": 6,
+      "task_id": 5,
       "complexity": "medium",
       "prompt": "You are joining a book club discussion about The Great Gatsby, but you have not had time to read the novel. You want to understand the main plot points, key characters, and overarching themes well enough to follow the conversation and make meaningful comments.\n\n**Task:** Use the text field below to explain what kind of overview you need and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
-      "task_id": 7,
-      "complexity": "medium",
-      "prompt": "You are introducing a guest speaker at a local tech seminar. The audience includes both technical experts and non-specialists. You want a short professional biography of Elon Musk that highlights his major career achievements across different companies, while keeping a neutral and professional tone.\n\n**Task:** Use the text field below to explain your requirements and ask the chatbot for help, or switch to a web browser to do a simple Google search."
-    },
-    {
-      "task_id": 8,
+      "task_id": 6,
       "complexity": "medium",
       "prompt": "You are interested in sustainability and climate policy and want to better understand why the Kyoto Protocol is often described as influential. In particular, you want to grasp the idea behind its market-based mechanisms and why they were considered cost-effective at the time, without reading a full academic paper.\n\n**Task:** Use the text field below to explain what you want to learn and ask the chatbot for help, or switch to a web browser to do a simple Google search."
     },
     {
-      "task_id": 9,
-      "complexity": "high",
-      "prompt": "You are advising a small developing country that wants to reduce carbon emissions while maintaining rapid industrial growth. The country has limited administrative capacity, strong political resistance from manufacturers, and concerns about economic competitiveness. You need to evaluate whether a carbon tax or a cap-and-trade system would be more effective and realistic under these constraints.\n\n**Task:** Use the text field below to explain your context and ask the chatbot to compare the two approaches and make a recommendation, or switch to a web browser to do a simple Google search."
-    },
-    {
-      "task_id": 10,
+      "task_id": 7,
       "complexity": "high",
       "prompt": "You have been baking sourdough bread repeatedly, but your loaves consistently turn out flat and dense instead of airy. You have already checked basic factors like yeast quality and oven temperature. You want to understand, step by step, what might be going wrong in your fermentation, folding, or timing process, and how to fix it.\n\n**Task:** Use the text field below to describe what you have tried and ask the chatbot to help you reason through the possible causes, or switch to a web browser to do a simple Google search."
     },
     {
-      "task_id": 11,
+      "task_id": 8,
       "complexity": "high",
       "prompt": "Your company is considering moving all of its data to the cloud to reduce costs and improve scalability. At the same time, you are concerned about data sovereignty, privacy obligations, and long-term dependency on external providers. You need a structured way to weigh these competing priorities before making a recommendation to your boss.\n\n**Task:** Use the text field below to explain your concerns and ask the chatbot for a reasoned analysis, or switch to a web browser to do a simple Google search."
     },
     {
-      "task_id": 12,
+      "task_id": 9,
       "complexity": "high",
       "prompt": "You manage a small law firm and are considering using agentic AI systems to automate most administrative tasks to reduce costs. However, you are worried about compliance with upcoming AI employment regulations, data privacy requirements, potential bias, and reputational risks. You need a clear risk-assessment framework to decide whether and how to proceed.\n\n**Task:** Use the text field below to explain your situation and ask the chatbot to help you assess the risks, or switch to a web browser to do a simple Google search."
     }

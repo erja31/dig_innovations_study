@@ -50,3 +50,6 @@ def init():
 
     if "data_saved" not in st.session_state:
         st.session_state.data_saved = False
+
+    if "example_complete" not in st.session_state:
+        st.session_state.example_complete = False

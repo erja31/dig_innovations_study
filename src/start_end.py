@@ -13,7 +13,7 @@ def render_start_page():
     
     
     ### What You'll Do
-    - Complete **12 tasks** that involve writing prompts for an AI chatbot
+    - Complete **9 tasks** that involve writing prompts for an AI chatbot
     - Each task presents a scenario where you need to formulate a prompt to get the desired information
     - The interface may provide different types of guidance or feedback
     - Your responses will be recorded for research purposes
