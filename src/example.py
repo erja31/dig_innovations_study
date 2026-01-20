@@ -30,7 +30,7 @@ def render_example():
     st.button("Alternative Search", help="Use a different search method like a simple Google Search", use_container_width=True)
 
 
-    st.markdown(""" - **Option 2:** Use the text area below to provide a detailed prompt to the chatbot. For example, you might write:""")
+    st.markdown(""" - **Option 2:** Use the text area below to provide a detailed prompt to the chatbot. Make sure the prompt is in your opinion detailed enough to get the desired response from the Chatbot. Be aware this is just a hypothetical task so no actual response will be generated. For example, you might write:""")
     with st.container(border=True):
         st.markdown("""
 
