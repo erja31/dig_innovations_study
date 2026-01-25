@@ -32,10 +32,7 @@ def init():
         st.session_state.participant_id = str(uuid.uuid4())
 
     if "nudge" not in st.session_state:
-        st.session_state.nudge = random.choice([
-            "friction",
-            "disclosure",
-        ])
+        st.session_state.nudge = "friction"
 
     if "last_submit_time" not in st.session_state:
         st.session_state.last_submit_time = None
