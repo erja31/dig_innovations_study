@@ -33,7 +33,6 @@ def init():
 
     if "nudge" not in st.session_state:
         st.session_state.nudge = random.choice([
-            "control",
             "friction",
             "disclosure",
         ])
