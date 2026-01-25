@@ -36,7 +36,6 @@ def init():
             "control",
             "friction",
             "disclosure",
-            "feedback"
         ])
 
     if "last_submit_time" not in st.session_state:
